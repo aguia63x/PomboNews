@@ -9,3 +9,7 @@ Atualização da identidade e experiência do app:
 - Tela inicial com acabamento visual e hierarquia aprimorados.
 
 Observação: os alertas urgentes são disparados quando o app está aberto e executa uma atualização do feed; a permissão de notificações é solicitada somente quando o usuário ativa o recurso.
+
+
+### Ícone do aplicativo
+O ícone oficial do Pombo News foi atualizado para usar o pombo com globo em fundo azul, sem a margem quadrada anterior.
