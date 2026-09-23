@@ -90,6 +90,63 @@ html.dark{--bg:#080d15;--text:#f4f7fb;--muted:#aeb8c7;--line:#253244;--soft:#111
 .brand-word small{font-size:9px!important;font-weight:600!important;letter-spacing:1px!important}
 @media(max-width:560px){.brand-word small{font-size:9px!important;font-weight:600!important;letter-spacing:.95px!important}}
 </style>
+
+<style id="pombonews-refino-visual-1">
+/* Refinamento visual: hierarquia e leitura no celular */
+.preferences-row{gap:10px;margin:12px 0 4px}
+.preference-pill{padding:8px 13px;font-size:13px;font-weight:600;min-height:38px}
+.preference-pill.alert-active{font-weight:650}
+.urgent-banner{padding:11px 13px;border-radius:14px;font-size:12.5px;gap:10px}
+.urgent-banner b{font-size:13px}
+.latest-strip{gap:9px;margin:15px 0 13px;font-size:13px}
+.latest-strip b{font-weight:700;color:var(--text)}
+.featured-label{font-size:13px;letter-spacing:1.05px;margin-bottom:11px}
+.section-head h2{font-weight:650}
+@media(max-width:560px){
+  .preferences-row{gap:9px;margin:10px 0 5px}
+  .preference-pill{padding:8px 12px;font-size:13px}
+  .urgent-banner{padding:11px 12px;font-size:12px}
+  .urgent-banner b{font-size:13px}
+  .latest-strip{margin:14px 0 12px;font-size:12.5px}
+  .featured-label{font-size:13px}
+}
+</style>
+
+<style id="pombonews-refino-cards-2">
+/* Refinamento visual 2 — cards editoriais */
+.perspectives{gap:14px;margin-top:18px}
+.story{position:relative;display:grid;grid-template-columns:150px 1fr;gap:15px;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:0 3px 12px rgba(20,40,70,.06);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.story:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(20,40,70,.10);border-color:color-mix(in srgb,var(--blue) 22%,var(--line))}
+.dark .story{box-shadow:0 5px 18px rgba(0,0,0,.20)}
+.dark .story:hover{box-shadow:0 9px 24px rgba(0,0,0,.30)}
+.thumb{width:150px;aspect-ratio:16/10;border-radius:12px;box-shadow:none}
+.source-row{font-size:11.5px;font-weight:600;letter-spacing:.05px}
+.source-dot{width:6px;height:6px}
+.story h3{font-size:16px;line-height:1.24;font-weight:700;margin:6px 0 7px;letter-spacing:-.1px}
+.story p{font-size:12.5px;line-height:1.38;margin:0;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.story .time{font-size:11px;margin-top:8px}
+.story-actions{right:9px;top:9px}
+.icon-btn{width:30px;height:30px;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(5px)}
+.lead{gap:20px}
+.lead-img{border-radius:16px}
+.lead-info{padding:4px 2px}
+.lead h1{font-size:27px;font-weight:700;letter-spacing:-.35px}
+.source-badge{font-weight:700}
+@media(max-width:900px){.story{grid-template-columns:135px 1fr}.thumb{width:135px}}
+@media(max-width:560px){
+  .perspectives{gap:10px;margin-top:14px}
+  .story{grid-template-columns:108px 1fr;gap:11px;padding:10px;border-radius:14px}
+  .thumb{width:108px;border-radius:10px}
+  .source-row{font-size:10.5px;gap:5px}
+  .story h3{font-size:15px;line-height:1.23;margin:4px 0 0;padding-right:27px}
+  .story p{display:none}
+  .story .time{font-size:10.5px;margin-top:6px}
+  .story-actions{right:7px;top:7px}
+  .icon-btn{width:28px;height:28px}
+  .lead-info{padding:2px 0}
+  .lead h1{font-size:22px;line-height:1.18}
+}
+</style>
 </head>
 <body>
 <header class="topbar">
