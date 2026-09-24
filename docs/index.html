@@ -180,7 +180,22 @@ html.dark{--bg:#080d15;--text:#f4f7fb;--muted:#aeb8c7;--line:#253244;--soft:#111
   .lead h1{font-size:20px;line-height:1.22}
   .story{padding-top:14px}
 }
-</style></head>
+</style>
+<style id="pombonews-welcome-style">
+#pombonewsWelcome{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(5,18,38,.48);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#pombonewsWelcome[hidden]{display:none!important}
+.pn-welcome-card{position:relative;width:min(520px,100%);max-height:calc(100vh - 40px);overflow:auto;background:var(--card,#fff);color:var(--text,#172033);border-radius:28px;padding:30px 26px 24px;box-shadow:0 24px 80px rgba(0,0,0,.25);text-align:left}
+.pn-welcome-close{position:absolute;right:14px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(127,127,127,.12);color:inherit;font-size:24px;line-height:1;cursor:pointer}
+.pn-welcome-icon{display:flex;justify-content:center;align-items:center;margin-bottom:12px}.pn-welcome-icon img{width:86px;height:86px;object-fit:contain;display:block}
+.pn-welcome-title{margin:0 40px 8px 0;font-size:28px;line-height:1.15;font-weight:800}
+.pn-welcome-sub{margin:0 0 20px;font-size:17px;font-weight:700;opacity:.9}
+.pn-welcome-list{display:grid;gap:12px;margin:0 0 24px;padding:0;list-style:none}
+.pn-welcome-list li{font-size:16px;line-height:1.4}
+.pn-welcome-start{width:100%;border:0;border-radius:15px;padding:14px 18px;font-size:17px;font-weight:800;cursor:pointer;background:#1677ff;color:#fff;box-shadow:0 8px 22px rgba(22,119,255,.28)}
+.pn-welcome-start:active{transform:translateY(1px)}
+@media(max-width:600px){.pn-welcome-card{padding:26px 20px 20px;border-radius:24px}.pn-welcome-title{font-size:25px}.pn-welcome-sub{font-size:16px}.pn-welcome-list li{font-size:15px}}
+</style>
+</head>
 <body>
 <header class="topbar">
 <a class="brand" href="#" onclick="goHome();return false" aria-label="Pombo News - página inicial">
@@ -311,6 +326,43 @@ function applyTheme(){let saved='';try{saved=localStorage.getItem('PomboNews-the
 function toggleTheme(){const dark=document.documentElement.classList.contains('dark');try{localStorage.setItem('PomboNews-theme-v1',dark?'light':'dark')}catch(e){}applyTheme()}
 try{const mq=window.matchMedia('(prefers-color-scheme: dark)');mq.addEventListener?.('change',()=>{try{if(!localStorage.getItem('PomboNews-theme-v1')&&!localStorage.getItem('aguianews-theme'))applyTheme()}catch(e){}})}catch(e){}
 applyTheme();$('q').addEventListener('input',handleSearchInput);renderNav();renderQuickbar();renderPrivacyMode();renderPreferences();load();setInterval(()=>{if(!loading)refreshLive()},300000);
+</script>
+
+<div id="pombonewsWelcome" hidden aria-modal="true" role="dialog" aria-labelledby="pombonewsWelcomeTitle">
+  <div class="pn-welcome-card">
+    <button id="pombonewsWelcomeClose" class="pn-welcome-close" type="button" aria-label="Fechar">✕</button>
+    <div class="pn-welcome-icon" aria-hidden="true"><img src="./pombonews-mascot.png" alt="Pombo News"></div>
+    <h2 id="pombonewsWelcomeTitle" class="pn-welcome-title">Bem-vindo ao Pombo News</h2>
+    <p class="pn-welcome-sub">“Seu pombo de confiança chegou!”</p>
+    <ul class="pn-welcome-list">
+      <li>📰 <strong>Notícias</strong> de Recife, do Brasil e do mundo.</li>
+      <li>🕊️ <strong>Fofocas</strong> — famosos, celebridades e TV</li>
+      <li>🚫 <strong>Sem política</strong> — se você quiser evitar política</li>
+      <li>🔎 <strong>Busca</strong> — encontre notícias rapidamente</li>
+      <li>⭐ <strong>Salvos</strong> — guarde o que quiser ler depois</li>
+    </ul>
+    <button id="pombonewsWelcomeStart" class="pn-welcome-start" type="button">Começar a voar 🕊️</button>
+  </div>
+</div>
+
+<script id="pombonews-welcome-script">
+(function(){
+  const KEY='PomboNews-welcome-seen-v1';
+  function initWelcome(){
+    const modal=document.getElementById('pombonewsWelcome');
+    const close=document.getElementById('pombonewsWelcomeClose');
+    const start=document.getElementById('pombonewsWelcomeStart');
+    if(!modal||!close||!start) return;
+    let seen=false;
+    try{seen=localStorage.getItem(KEY)==='1';}catch(e){}
+    if(!seen) modal.hidden=false;
+    const hide=()=>{modal.hidden=true;try{localStorage.setItem(KEY,'1')}catch(e){}};
+    close.addEventListener('click',hide); start.addEventListener('click',hide);
+    modal.addEventListener('click',e=>{if(e.target===modal) hide();});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)hide();});
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',initWelcome); else initWelcome();
+})();
 </script>
 </body>
 </html>
