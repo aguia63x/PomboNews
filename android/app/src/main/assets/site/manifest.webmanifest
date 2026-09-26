@@ -1,0 +1,10 @@
+{
+  "name": "Pombo News",
+  "short_name": "Pombo News",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#1677ff",
+  "lang": "pt-BR",
+  "icons": [{"src":"./pombonews_app_icon.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}]
+}
