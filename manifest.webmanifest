@@ -1,0 +1,23 @@
+{
+  "name": "Pombo News",
+  "short_name": "Pombo News",
+  "description": "Seu pombo de confiança — notícias de Recife, Pernambuco e do Brasil.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#0b1f3a",
+  "background_color": "#07111f",
+  "icons": [
+    {
+      "src": "./pombonews_app_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["news", "entertainment"],
+  "prefer_related_applications": false
+}
